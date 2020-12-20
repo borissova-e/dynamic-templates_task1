@@ -1,0 +1,64 @@
+<!DOCTYPE html>{% load static %}
+{% load app_tags %}
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Инфляция в России</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body>
+    {% block content %}
+      <div class="row">
+        <h1 class="col s12">Инфляция в России</h1>
+        <table>
+            <tr>
+              <th>Год</th>
+              <th>Янв</th>
+              <th>Фев</th>
+              <th>Мар</th>
+              <th>Апр</th>
+              <th>Май</th>
+              <th>Июн</th>
+              <th>Июл</th>
+              <th>Авг</th>
+              <th>Сен</th>
+              <th>Окт</th>
+              <th>Ноя</th>
+              <th>Дек</th>
+              <th>Всего</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for element in inflation %}
+            <tr>
+              <td>{{ element.Год }}</td>
+              <td bgcolor={{element.Янв|inflation_color}}>{{ element.Янв }}</td>
+              <td bgcolor={{element.Фев|inflation_color}}>{{ element.Фев }}</td>
+              <td bgcolor={{element.Мар|inflation_color}}>{{ element.Мар }}</td>
+              <td bgcolor={{element.Апр|inflation_color}}>{{ element.Апр }}</td>
+              <td bgcolor={{element.Май|inflation_color}}>{{ element.Май }}</td>
+              <td bgcolor={{element.Июн|inflation_color}}>{{ element.Июн }}</td>
+              <td bgcolor={{element.Июл|inflation_color}}>{{ element.Июл }}</td>
+              <td bgcolor={{element.Авг|inflation_color}}>{{ element.Авг }}</td>
+              <td bgcolor={{element.Сен|inflation_color}}>{{ element.Сен }}</td>
+              <td bgcolor={{element.Окт|inflation_color}}>{{ element.Окт }}</td>
+              <td bgcolor={{element.Ноя|inflation_color}}>{{ element.Ноя }}</td>
+              <td bgcolor={{element.Дек|inflation_color}}>{{ element.Дек }}</td>
+              <td bgcolor="grey">{{ element.Всего }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+        </table>
+      </div>
+    {% endblock %}
+
+  </body>
+</html>
